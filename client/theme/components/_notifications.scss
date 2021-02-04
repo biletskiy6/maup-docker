@@ -1,0 +1,13 @@
+.vue-notification-group {
+  font-family: $header-font;
+}
+body .vue-notification {
+  margin: 0;
+  font-size: 12px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  padding: 12px 25px;
+}
+.notification-title {
+  font-size: 16px;
+}

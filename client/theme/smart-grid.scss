@@ -1,0 +1,857 @@
+$columns: 12;
+$atom: (100% / $columns);
+
+$break_lg: 1680px;
+$break_lgm: 1600px;
+$break_mdl: 1450px;
+$break_md: 1366px;
+$break_mdx: 1280px;
+$break_tablet: 1024px;
+$break_tabletl: 992px;
+$break_tabletx: 768px;
+$break_phonex: 576px;
+$break_phone: 480px;
+$break_iphone: 320px;
+
+$offset: 20px;
+$offset_lg: $offset;
+$offset_lgm: $offset;
+$offset_mdl: $offset;
+$offset_md: $offset;
+$offset_mdx: $offset;
+$offset_tablet: $offset;
+$offset_tabletl: $offset;
+$offset_tabletx: $offset;
+$offset_phonex: $offset;
+$offset_phone: $offset;
+$offset_iphone: $offset;
+
+$offset_one_side: ($offset / 2);
+$offset_lg_one_side: ($offset_lg / 2);
+$offset_lgm_one_side: ($offset_lgm / 2);
+$offset_mdl_one_side: ($offset_mdl / 2);
+$offset_md_one_side: ($offset_md / 2);
+$offset_mdx_one_side: ($offset_mdx / 2);
+$offset_tablet_one_side: ($offset_tablet / 2);
+$offset_tabletl_one_side: ($offset_tabletl / 2);
+$offset_tabletx_one_side: ($offset_tabletx / 2);
+$offset_phonex_one_side: ($offset_phonex / 2);
+$offset_phone_one_side: ($offset_phone / 2);
+$offset_iphone_one_side: ($offset_iphone / 2);
+
+$fields: 20px;
+$fields_lg: 15px;
+$fields_lgm: 15px;
+$fields_mdl: 15px;
+$fields_md: 15px;
+$fields_mdx: 15px;
+$fields_tablet: 15px;
+$fields_tabletl: 15px;
+$fields_tabletx: 15px;
+$fields_phonex: 10px;
+$fields_phone: 10px;
+$fields_iphone: 10px;
+
+@mixin wrapper-full(){
+    padding-left: $fields;
+    padding-right: $fields;
+
+    @include lg-block(){
+        padding-left: $fields_lg;
+        padding-right: $fields_lg;
+    }
+
+    @include lgm-block(){
+        padding-left: $fields_lgm;
+        padding-right: $fields_lgm;
+    }
+
+    @include mdl-block(){
+        padding-left: $fields_mdl;
+        padding-right: $fields_mdl;
+    }
+
+    @include md-block(){
+        padding-left: $fields_md;
+        padding-right: $fields_md;
+    }
+
+    @include mdx-block(){
+        padding-left: $fields_mdx;
+        padding-right: $fields_mdx;
+    }
+
+    @include tablet-block(){
+        padding-left: $fields_tablet;
+        padding-right: $fields_tablet;
+    }
+
+    @include tabletl-block(){
+        padding-left: $fields_tabletl;
+        padding-right: $fields_tabletl;
+    }
+
+    @include tabletx-block(){
+        padding-left: $fields_tabletx;
+        padding-right: $fields_tabletx;
+    }
+
+    @include phonex-block(){
+        padding-left: $fields_phonex;
+        padding-right: $fields_phonex;
+    }
+
+    @include phone-block(){
+        padding-left: $fields_phone;
+        padding-right: $fields_phone;
+    }
+
+    @include iphone-block(){
+        padding-left: $fields_iphone;
+        padding-right: $fields_iphone;
+    }
+}
+
+@mixin row-offsets(){
+    margin-left: ($offset_one_side * -1);
+    margin-right: ($offset_one_side * -1);
+}
+
+@mixin col-offsets($type){
+    #{$type}-left: $offset_one_side;
+    #{$type}-right: $offset_one_side;
+}
+
+@mixin wrapper(){
+    max-width: 1480px;
+    margin: 0 auto;
+    @include wrapper-full();
+}
+
+@mixin row-flex(){
+    display: flex;
+    flex-wrap: wrap;
+    @include row-offsets();
+}
+
+@mixin row-float(){
+    @include row-offsets();
+    @include clearfix();
+}
+
+@mixin row-ib(){
+    @include row-offsets();
+}
+
+@mixin col(){
+    box-sizing: border-box;
+    word-wrap: break-word;
+    @include col-offsets(margin);
+}
+
+@mixin col-float(){
+    float: left;
+}
+
+@mixin col-ib(){
+    display: inline-block;
+    vertical-align: top;
+}
+
+@mixin col-padding(){
+    word-wrap: break-word;
+    @include col-offsets(padding);
+}
+
+@mixin size($n){
+    $val: 100% / $columns * $n;
+    width: #{calc(#{$val} - #{$offset})};
+}
+
+@mixin size-lg($n){
+    $val: 100% / $columns * $n;
+    @include lg(width, #{calc(#{$val} - #{$offset_lg})});
+}
+
+@mixin size-lgm($n){
+    $val: 100% / $columns * $n;
+    @include lgm(width, #{calc(#{$val} - #{$offset_lgm})});
+}
+
+@mixin size-mdl($n){
+    $val: 100% / $columns * $n;
+    @include mdl(width, #{calc(#{$val} - #{$offset_mdl})});
+}
+
+@mixin size-md($n){
+    $val: 100% / $columns * $n;
+    @include md(width, #{calc(#{$val} - #{$offset_md})});
+}
+
+@mixin size-mdx($n){
+    $val: 100% / $columns * $n;
+    @include mdx(width, #{calc(#{$val} - #{$offset_mdx})});
+}
+
+@mixin size-tablet($n){
+    $val: 100% / $columns * $n;
+    @include tablet(width, #{calc(#{$val} - #{$offset_tablet})});
+}
+
+@mixin size-tabletl($n){
+    $val: 100% / $columns * $n;
+    @include tabletl(width, #{calc(#{$val} - #{$offset_tabletl})});
+}
+
+@mixin size-tabletx($n){
+    $val: 100% / $columns * $n;
+    @include tabletx(width, #{calc(#{$val} - #{$offset_tabletx})});
+}
+
+@mixin size-phonex($n){
+    $val: 100% / $columns * $n;
+    @include phonex(width, #{calc(#{$val} - #{$offset_phonex})});
+}
+
+@mixin size-phone($n){
+    $val: 100% / $columns * $n;
+    @include phone(width, #{calc(#{$val} - #{$offset_phone})});
+}
+
+@mixin size-iphone($n){
+    $val: 100% / $columns * $n;
+    @include iphone(width, #{calc(#{$val} - #{$offset_iphone})});
+}
+
+@mixin shift($n){
+    $val: 100% / $columns * $n;
+    margin-left: #{calc(#{$val} + #{$offset_one_side})};
+    margin-right: #{calc(#{$val} + #{$offset_one_side})};
+}
+
+@mixin shift-left($n){
+    $val: 100% / $columns * $n;
+    margin-left: #{calc(#{$val} + #{$offset_one_side})};
+}
+
+@mixin shift-right($n){
+    $val: 100% / $columns * $n;
+    margin-right: #{calc(#{$val} + #{$offset_one_side})};
+}
+
+@mixin shift-padding($n){
+    $val: 100% / $columns * $n;
+    padding-left: #{calc(#{$val} + #{$offset_one_side})};
+    padding-right: #{calc(#{$val} + #{$offset_one_side})};
+}
+
+@mixin shift-padding-left($n){
+    $val: 100% / $columns * $n;
+    padding-left: #{calc(#{$val} + #{$offset_one_side})};
+}
+
+@mixin shift-padding-right($n){
+    $val: 100% / $columns * $n;
+    padding-right: #{calc(#{$val} + #{$offset_one_side})};
+}
+
+@mixin shift-lg($n){
+    $val: 100% / $columns * $n;
+    @include lg(margin-left, #{calc(#{$val} + #{$offset_lg_one_side})});
+    @include lg(margin-right, #{calc(#{$val} + #{$offset_lg_one_side})});
+}
+
+@mixin shift-lg-left($n){
+    $val: 100% / $columns * $n;
+    @include lg(margin-left, #{calc(#{$val} + #{$offset_lg_one_side})});
+}
+
+@mixin shift-lg-right($n){
+    $val: 100% / $columns * $n;
+    @include lg(margin-right, #{calc(#{$val} + #{$offset_lg_one_side})});
+}
+
+@mixin shift-lg-padding($n){
+    $val: 100% / $columns * $n;
+    @include lg(padding-left, #{calc(#{$val} + #{$offset_lg_one_side})});
+    @include lg(padding-right, #{calc(#{$val} + #{$offset_lg_one_side})});
+}
+
+@mixin shift-lg-padding-left($n){
+    $val: 100% / $columns * $n;
+    @include lg(padding-left, #{calc(#{$val} + #{$offset_lg_one_side})});
+}
+
+@mixin shift-lg-padding-right($n){
+    $val: 100% / $columns * $n;
+    @include lg(padding-right, #{calc(#{$val} + #{$offset_lg_one_side})});
+}
+
+@mixin shift-lgm($n){
+    $val: 100% / $columns * $n;
+    @include lgm(margin-left, #{calc(#{$val} + #{$offset_lgm_one_side})});
+    @include lgm(margin-right, #{calc(#{$val} + #{$offset_lgm_one_side})});
+}
+
+@mixin shift-lgm-left($n){
+    $val: 100% / $columns * $n;
+    @include lgm(margin-left, #{calc(#{$val} + #{$offset_lgm_one_side})});
+}
+
+@mixin shift-lgm-right($n){
+    $val: 100% / $columns * $n;
+    @include lgm(margin-right, #{calc(#{$val} + #{$offset_lgm_one_side})});
+}
+
+@mixin shift-lgm-padding($n){
+    $val: 100% / $columns * $n;
+    @include lgm(padding-left, #{calc(#{$val} + #{$offset_lgm_one_side})});
+    @include lgm(padding-right, #{calc(#{$val} + #{$offset_lgm_one_side})});
+}
+
+@mixin shift-lgm-padding-left($n){
+    $val: 100% / $columns * $n;
+    @include lgm(padding-left, #{calc(#{$val} + #{$offset_lgm_one_side})});
+}
+
+@mixin shift-lgm-padding-right($n){
+    $val: 100% / $columns * $n;
+    @include lgm(padding-right, #{calc(#{$val} + #{$offset_lgm_one_side})});
+}
+
+@mixin shift-mdl($n){
+    $val: 100% / $columns * $n;
+    @include mdl(margin-left, #{calc(#{$val} + #{$offset_mdl_one_side})});
+    @include mdl(margin-right, #{calc(#{$val} + #{$offset_mdl_one_side})});
+}
+
+@mixin shift-mdl-left($n){
+    $val: 100% / $columns * $n;
+    @include mdl(margin-left, #{calc(#{$val} + #{$offset_mdl_one_side})});
+}
+
+@mixin shift-mdl-right($n){
+    $val: 100% / $columns * $n;
+    @include mdl(margin-right, #{calc(#{$val} + #{$offset_mdl_one_side})});
+}
+
+@mixin shift-mdl-padding($n){
+    $val: 100% / $columns * $n;
+    @include mdl(padding-left, #{calc(#{$val} + #{$offset_mdl_one_side})});
+    @include mdl(padding-right, #{calc(#{$val} + #{$offset_mdl_one_side})});
+}
+
+@mixin shift-mdl-padding-left($n){
+    $val: 100% / $columns * $n;
+    @include mdl(padding-left, #{calc(#{$val} + #{$offset_mdl_one_side})});
+}
+
+@mixin shift-mdl-padding-right($n){
+    $val: 100% / $columns * $n;
+    @include mdl(padding-right, #{calc(#{$val} + #{$offset_mdl_one_side})});
+}
+
+@mixin shift-md($n){
+    $val: 100% / $columns * $n;
+    @include md(margin-left, #{calc(#{$val} + #{$offset_md_one_side})});
+    @include md(margin-right, #{calc(#{$val} + #{$offset_md_one_side})});
+}
+
+@mixin shift-md-left($n){
+    $val: 100% / $columns * $n;
+    @include md(margin-left, #{calc(#{$val} + #{$offset_md_one_side})});
+}
+
+@mixin shift-md-right($n){
+    $val: 100% / $columns * $n;
+    @include md(margin-right, #{calc(#{$val} + #{$offset_md_one_side})});
+}
+
+@mixin shift-md-padding($n){
+    $val: 100% / $columns * $n;
+    @include md(padding-left, #{calc(#{$val} + #{$offset_md_one_side})});
+    @include md(padding-right, #{calc(#{$val} + #{$offset_md_one_side})});
+}
+
+@mixin shift-md-padding-left($n){
+    $val: 100% / $columns * $n;
+    @include md(padding-left, #{calc(#{$val} + #{$offset_md_one_side})});
+}
+
+@mixin shift-md-padding-right($n){
+    $val: 100% / $columns * $n;
+    @include md(padding-right, #{calc(#{$val} + #{$offset_md_one_side})});
+}
+
+@mixin shift-mdx($n){
+    $val: 100% / $columns * $n;
+    @include mdx(margin-left, #{calc(#{$val} + #{$offset_mdx_one_side})});
+    @include mdx(margin-right, #{calc(#{$val} + #{$offset_mdx_one_side})});
+}
+
+@mixin shift-mdx-left($n){
+    $val: 100% / $columns * $n;
+    @include mdx(margin-left, #{calc(#{$val} + #{$offset_mdx_one_side})});
+}
+
+@mixin shift-mdx-right($n){
+    $val: 100% / $columns * $n;
+    @include mdx(margin-right, #{calc(#{$val} + #{$offset_mdx_one_side})});
+}
+
+@mixin shift-mdx-padding($n){
+    $val: 100% / $columns * $n;
+    @include mdx(padding-left, #{calc(#{$val} + #{$offset_mdx_one_side})});
+    @include mdx(padding-right, #{calc(#{$val} + #{$offset_mdx_one_side})});
+}
+
+@mixin shift-mdx-padding-left($n){
+    $val: 100% / $columns * $n;
+    @include mdx(padding-left, #{calc(#{$val} + #{$offset_mdx_one_side})});
+}
+
+@mixin shift-mdx-padding-right($n){
+    $val: 100% / $columns * $n;
+    @include mdx(padding-right, #{calc(#{$val} + #{$offset_mdx_one_side})});
+}
+
+@mixin shift-tablet($n){
+    $val: 100% / $columns * $n;
+    @include tablet(margin-left, #{calc(#{$val} + #{$offset_tablet_one_side})});
+    @include tablet(margin-right, #{calc(#{$val} + #{$offset_tablet_one_side})});
+}
+
+@mixin shift-tablet-left($n){
+    $val: 100% / $columns * $n;
+    @include tablet(margin-left, #{calc(#{$val} + #{$offset_tablet_one_side})});
+}
+
+@mixin shift-tablet-right($n){
+    $val: 100% / $columns * $n;
+    @include tablet(margin-right, #{calc(#{$val} + #{$offset_tablet_one_side})});
+}
+
+@mixin shift-tablet-padding($n){
+    $val: 100% / $columns * $n;
+    @include tablet(padding-left, #{calc(#{$val} + #{$offset_tablet_one_side})});
+    @include tablet(padding-right, #{calc(#{$val} + #{$offset_tablet_one_side})});
+}
+
+@mixin shift-tablet-padding-left($n){
+    $val: 100% / $columns * $n;
+    @include tablet(padding-left, #{calc(#{$val} + #{$offset_tablet_one_side})});
+}
+
+@mixin shift-tablet-padding-right($n){
+    $val: 100% / $columns * $n;
+    @include tablet(padding-right, #{calc(#{$val} + #{$offset_tablet_one_side})});
+}
+
+@mixin shift-tabletl($n){
+    $val: 100% / $columns * $n;
+    @include tabletl(margin-left, #{calc(#{$val} + #{$offset_tabletl_one_side})});
+    @include tabletl(margin-right, #{calc(#{$val} + #{$offset_tabletl_one_side})});
+}
+
+@mixin shift-tabletl-left($n){
+    $val: 100% / $columns * $n;
+    @include tabletl(margin-left, #{calc(#{$val} + #{$offset_tabletl_one_side})});
+}
+
+@mixin shift-tabletl-right($n){
+    $val: 100% / $columns * $n;
+    @include tabletl(margin-right, #{calc(#{$val} + #{$offset_tabletl_one_side})});
+}
+
+@mixin shift-tabletl-padding($n){
+    $val: 100% / $columns * $n;
+    @include tabletl(padding-left, #{calc(#{$val} + #{$offset_tabletl_one_side})});
+    @include tabletl(padding-right, #{calc(#{$val} + #{$offset_tabletl_one_side})});
+}
+
+@mixin shift-tabletl-padding-left($n){
+    $val: 100% / $columns * $n;
+    @include tabletl(padding-left, #{calc(#{$val} + #{$offset_tabletl_one_side})});
+}
+
+@mixin shift-tabletl-padding-right($n){
+    $val: 100% / $columns * $n;
+    @include tabletl(padding-right, #{calc(#{$val} + #{$offset_tabletl_one_side})});
+}
+
+@mixin shift-tabletx($n){
+    $val: 100% / $columns * $n;
+    @include tabletx(margin-left, #{calc(#{$val} + #{$offset_tabletx_one_side})});
+    @include tabletx(margin-right, #{calc(#{$val} + #{$offset_tabletx_one_side})});
+}
+
+@mixin shift-tabletx-left($n){
+    $val: 100% / $columns * $n;
+    @include tabletx(margin-left, #{calc(#{$val} + #{$offset_tabletx_one_side})});
+}
+
+@mixin shift-tabletx-right($n){
+    $val: 100% / $columns * $n;
+    @include tabletx(margin-right, #{calc(#{$val} + #{$offset_tabletx_one_side})});
+}
+
+@mixin shift-tabletx-padding($n){
+    $val: 100% / $columns * $n;
+    @include tabletx(padding-left, #{calc(#{$val} + #{$offset_tabletx_one_side})});
+    @include tabletx(padding-right, #{calc(#{$val} + #{$offset_tabletx_one_side})});
+}
+
+@mixin shift-tabletx-padding-left($n){
+    $val: 100% / $columns * $n;
+    @include tabletx(padding-left, #{calc(#{$val} + #{$offset_tabletx_one_side})});
+}
+
+@mixin shift-tabletx-padding-right($n){
+    $val: 100% / $columns * $n;
+    @include tabletx(padding-right, #{calc(#{$val} + #{$offset_tabletx_one_side})});
+}
+
+@mixin shift-phonex($n){
+    $val: 100% / $columns * $n;
+    @include phonex(margin-left, #{calc(#{$val} + #{$offset_phonex_one_side})});
+    @include phonex(margin-right, #{calc(#{$val} + #{$offset_phonex_one_side})});
+}
+
+@mixin shift-phonex-left($n){
+    $val: 100% / $columns * $n;
+    @include phonex(margin-left, #{calc(#{$val} + #{$offset_phonex_one_side})});
+}
+
+@mixin shift-phonex-right($n){
+    $val: 100% / $columns * $n;
+    @include phonex(margin-right, #{calc(#{$val} + #{$offset_phonex_one_side})});
+}
+
+@mixin shift-phonex-padding($n){
+    $val: 100% / $columns * $n;
+    @include phonex(padding-left, #{calc(#{$val} + #{$offset_phonex_one_side})});
+    @include phonex(padding-right, #{calc(#{$val} + #{$offset_phonex_one_side})});
+}
+
+@mixin shift-phonex-padding-left($n){
+    $val: 100% / $columns * $n;
+    @include phonex(padding-left, #{calc(#{$val} + #{$offset_phonex_one_side})});
+}
+
+@mixin shift-phonex-padding-right($n){
+    $val: 100% / $columns * $n;
+    @include phonex(padding-right, #{calc(#{$val} + #{$offset_phonex_one_side})});
+}
+
+@mixin shift-phone($n){
+    $val: 100% / $columns * $n;
+    @include phone(margin-left, #{calc(#{$val} + #{$offset_phone_one_side})});
+    @include phone(margin-right, #{calc(#{$val} + #{$offset_phone_one_side})});
+}
+
+@mixin shift-phone-left($n){
+    $val: 100% / $columns * $n;
+    @include phone(margin-left, #{calc(#{$val} + #{$offset_phone_one_side})});
+}
+
+@mixin shift-phone-right($n){
+    $val: 100% / $columns * $n;
+    @include phone(margin-right, #{calc(#{$val} + #{$offset_phone_one_side})});
+}
+
+@mixin shift-phone-padding($n){
+    $val: 100% / $columns * $n;
+    @include phone(padding-left, #{calc(#{$val} + #{$offset_phone_one_side})});
+    @include phone(padding-right, #{calc(#{$val} + #{$offset_phone_one_side})});
+}
+
+@mixin shift-phone-padding-left($n){
+    $val: 100% / $columns * $n;
+    @include phone(padding-left, #{calc(#{$val} + #{$offset_phone_one_side})});
+}
+
+@mixin shift-phone-padding-right($n){
+    $val: 100% / $columns * $n;
+    @include phone(padding-right, #{calc(#{$val} + #{$offset_phone_one_side})});
+}
+
+@mixin shift-iphone($n){
+    $val: 100% / $columns * $n;
+    @include iphone(margin-left, #{calc(#{$val} + #{$offset_iphone_one_side})});
+    @include iphone(margin-right, #{calc(#{$val} + #{$offset_iphone_one_side})});
+}
+
+@mixin shift-iphone-left($n){
+    $val: 100% / $columns * $n;
+    @include iphone(margin-left, #{calc(#{$val} + #{$offset_iphone_one_side})});
+}
+
+@mixin shift-iphone-right($n){
+    $val: 100% / $columns * $n;
+    @include iphone(margin-right, #{calc(#{$val} + #{$offset_iphone_one_side})});
+}
+
+@mixin shift-iphone-padding($n){
+    $val: 100% / $columns * $n;
+    @include iphone(padding-left, #{calc(#{$val} + #{$offset_iphone_one_side})});
+    @include iphone(padding-right, #{calc(#{$val} + #{$offset_iphone_one_side})});
+}
+
+@mixin shift-iphone-padding-left($n){
+    $val: 100% / $columns * $n;
+    @include iphone(padding-left, #{calc(#{$val} + #{$offset_iphone_one_side})});
+}
+
+@mixin shift-iphone-padding-right($n){
+    $val: 100% / $columns * $n;
+    @include iphone(padding-right, #{calc(#{$val} + #{$offset_iphone_one_side})});
+}
+
+@mixin lg($name, $value){
+    @media screen and (max-width: $break_lg){
+        #{$name}: $value;
+    }
+}
+
+@mixin lg-block(){
+    @media screen and (max-width: $break_lg){
+        @content;
+    }
+}
+
+@mixin lgm($name, $value){
+    @media screen and (max-width: $break_lgm){
+        #{$name}: $value;
+    }
+}
+
+@mixin lgm-block(){
+    @media screen and (max-width: $break_lgm){
+        @content;
+    }
+}
+
+@mixin mdl($name, $value){
+    @media screen and (max-width: $break_mdl){
+        #{$name}: $value;
+    }
+}
+
+@mixin mdl-block(){
+    @media screen and (max-width: $break_mdl){
+        @content;
+    }
+}
+
+@mixin md($name, $value){
+    @media screen and (max-width: $break_md){
+        #{$name}: $value;
+    }
+}
+
+@mixin md-block(){
+    @media screen and (max-width: $break_md){
+        @content;
+    }
+}
+
+@mixin mdx($name, $value){
+    @media screen and (max-width: $break_mdx){
+        #{$name}: $value;
+    }
+}
+
+@mixin mdx-block(){
+    @media screen and (max-width: $break_mdx){
+        @content;
+    }
+}
+
+@mixin tablet($name, $value){
+    @media screen and (max-width: $break_tablet){
+        #{$name}: $value;
+    }
+}
+
+@mixin tablet-block(){
+    @media screen and (max-width: $break_tablet){
+        @content;
+    }
+}
+
+@mixin tabletl($name, $value){
+    @media screen and (max-width: $break_tabletl){
+        #{$name}: $value;
+    }
+}
+
+@mixin tabletl-block(){
+    @media screen and (max-width: $break_tabletl){
+        @content;
+    }
+}
+
+@mixin tabletx($name, $value){
+    @media screen and (max-width: $break_tabletx){
+        #{$name}: $value;
+    }
+}
+
+@mixin tabletx-block(){
+    @media screen and (max-width: $break_tabletx){
+        @content;
+    }
+}
+
+@mixin phonex($name, $value){
+    @media screen and (max-width: $break_phonex){
+        #{$name}: $value;
+    }
+}
+
+@mixin phonex-block(){
+    @media screen and (max-width: $break_phonex){
+        @content;
+    }
+}
+
+@mixin phone($name, $value){
+    @media screen and (max-width: $break_phone){
+        #{$name}: $value;
+    }
+}
+
+@mixin phone-block(){
+    @media screen and (max-width: $break_phone){
+        @content;
+    }
+}
+
+@mixin iphone($name, $value){
+    @media screen and (max-width: $break_iphone){
+        #{$name}: $value;
+    }
+}
+
+@mixin iphone-block(){
+    @media screen and (max-width: $break_iphone){
+        @content;
+    }
+}
+
+@mixin from($min_width){
+    @media screen and (min-width: $min_width){
+        @content;
+    }
+}
+
+@mixin to($max_width){
+    @media screen and (max-width: $max_width){
+        @content;
+    }
+}
+
+@mixin from-to($min_width, $max_width){
+    @media screen and (min-width: $min_width) and (max-width: $max_width){
+        @content;
+    }
+}
+
+@mixin u-row-flex($offset){
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: ($offset / -2);
+    margin-right: ($offset / -2);
+}
+
+@mixin u-col($offset){
+    box-sizing: border-box;
+    word-wrap: break-word;
+    margin-left: ($offset / 2);
+    margin-right: ($offset / 2);
+}
+
+@mixin u-size($n, $columns, $offset){
+    width: #{calc(100% / #{$columns} * #{$n} - #{$offset})};
+}
+
+@mixin reset(){
+    body,div,dl,dt,dd,ul,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,input,textarea,p,blockquote,th,td{
+        margin: 0;
+        padding: 0;
+    }
+    table{
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    fieldset,img,abbr{
+        border: 0;
+    }
+    address,caption,cite,code,dfn,em,strong,th,var{
+        font-style: normal;
+        font-weight: normal;
+    }
+    ul li{
+        list-style: none;
+    }
+    caption,th{
+        text-align: left;
+    }
+    h1,h2,h3,h4,h5,h6{
+        font-size: 100%;
+        font-weight: normal;
+    }
+    sup{
+        vertical-align: text-top;
+    }
+    sub{
+        vertical-align: text-bottom;
+    }
+    input,textarea,select{
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+    }
+    legend{
+        color: #000;
+    }
+    article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,main{
+        display: block;
+    }
+    img{
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@mixin debug($background, $outline){
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+    
+    > div{
+        height: inherit;
+        @include wrapper();
+        
+        > div{
+            height: inherit;
+            @include row-flex();
+            
+            > div{
+                @include col();
+                @include size(1);
+                height: inherit;
+                outline: $outline;
+                background: $background;
+            }
+        }
+    }
+}
+
+@mixin clearfix(){
+    &::after{
+        display: block;
+        content: "";
+        clear: both;
+    }
+}

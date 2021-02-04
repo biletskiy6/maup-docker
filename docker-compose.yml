@@ -1,0 +1,25 @@
+version: '3' # Docker Compose Version. Docker Compose for different container starting
+
+services:
+  frontend:
+    build: ./client
+    container_name: maup-frontend
+    command:
+      - /bin/bash
+      - -c
+      - |
+        npm run build
+        npx nuxt start
+    restart: unless-stopped
+    environment:
+      - PORT=4000
+      - HOST=0.0.0.0
+  nginx:
+    image: nginx:stable-alpine
+    container_name: maup-nginx
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx/nginx.conf.prod:/etc/nginx/conf.d/nginx.conf
+    depends_on:
+      - frontend

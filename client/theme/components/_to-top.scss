@@ -1,0 +1,43 @@
+.to-top {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  right: 36px;
+  bottom: 36px;
+  z-index: 101;
+  background-color: $white;
+  box-shadow: 0px 0px 24px #182c3729;
+  cursor: pointer;
+  transform: translateX(136px);
+  transition: transform .25s ease;
+  &.active {
+    transform: translateX(0px);
+    transition: transform .25s ease;
+  }
+  &__icon {
+    svg {
+      transition: transform .25s ease;
+    }
+    path {
+      fill: $blue;
+    }
+  }
+  &:hover {
+    transform: scale(1.1);
+    transition: transform .25s ease;
+    svg {
+      transform: scale(1.2);
+      transition: transform .25s ease;
+    }
+  }
+  @include phonex-block() {
+    width: 48px;
+    height: 48px;
+    right: 20px;
+    bottom: 20px;
+  }
+}

@@ -1,0 +1,118 @@
+.consult {
+  margin-top: 216px;
+  padding-bottom: 216px;
+  @include md-block() {
+    margin-top: 156px;
+    padding-bottom: 156px;
+  }
+  @include tabletl-block() {
+    margin-top: 126px;
+    padding-bottom: 126px;
+  }
+  @include phonex-block() {
+    margin-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+.common-section {
+  &__container {
+    background-color: #fff;
+    padding: 66px 240px 94px 240px;
+    border-radius: 32px;
+    background-image: url('~@/assets/icons/mask.svg');
+    @include mdx-block() {
+      padding: 66px 140px 94px 140px;
+    }
+    @include tablet-block() {
+      padding: 66px 70px 94px 70px;
+    }
+    @include phonex-block() {
+      padding: 66px 15px 94px 15px;
+    }
+  }
+  &__description {
+    margin: 32px auto 0;
+    line-height: 32px;
+  }
+  &__header,
+  &__description {
+    text-align: center;
+  }
+}
+
+.common-form {
+  margin-top: 64px;
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -32px;
+    margin-right: -32px;
+    margin-bottom: 64px;
+    @include tabletx-block() {
+      margin-bottom: 32px;
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+  }
+  &__left,
+  &__right {
+    margin-left: 32px;
+    margin-right: 32px;
+    width: calc(50% - 64px);
+    @include tabletl-block() {
+      width: calc(100% - 30px);
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+  }
+  &__left {
+    @include tabletl-block() {
+      margin-bottom: 18px;
+    }
+    .app-input {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &__right {
+    display: flex;
+    flex-direction: column;
+    .app-input {
+      height: 100%;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .app-input, .v-select {
+    margin-bottom: 16px;
+  }
+  &__footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: -32px;
+    margin-right: -32px;
+    @include tabletx-block() {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+    &-agreed, &-submit {
+      margin-left: 32px;
+      margin-right: 32px;
+      width: calc(50% - 64px);
+      @include tabletx-block() {
+        width: calc(100% - 30px);
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+    }
+    &-agreed {
+      margin-bottom: 18px;
+    }
+  }
+}
+
